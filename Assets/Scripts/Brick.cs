@@ -21,7 +21,7 @@ public class Brick : MonoBehaviour
         SpawnOnGrid();
     }
 
-    void SetRelativePositions()
+    public void SetRelativePositions()
     {
         switch (brickShape)
         {
@@ -85,13 +85,11 @@ public class Brick : MonoBehaviour
         }
     }
 
-    void SpawnOnGrid()
+    public void SpawnOnGrid(Vector2Int spawnPosition)
     {
         GridManager gridManager = FindObjectOfType<GridManager>();
         if (gridManager != null)
         {
-            Vector2Int spawnPosition = new Vector2Int(gridManager.gridWidth / 2, gridManager.gridHeight - 1);
-            spawnPosition -= new Vector2Int(1, 0);
 
             foreach (Vector2Int relativePos in relativePositions)
             {
